@@ -63,10 +63,10 @@ pour le debounce, j'ai utiliser :
 
 dans mon code, le premier hooks useEffect intégrant les fonctions setTimeout et clearTimeout gère le délai et l'annulation pour chaque mise à jour de searchTerm. Le second attend la nouvelle valeur de debouncedTerm et déclenche la recherche.
 
-<img src="captures/1.PNG" />
+<img src="captures/1.png" />
 
 
-<img src="captures/2.PNG" />
+<img src="captures/2.pnp" />
 
 
 ### Exercice 2 : Context et Internationalisation
