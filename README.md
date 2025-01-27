@@ -66,7 +66,7 @@ dans mon code, le premier hooks useEffect intégrant les fonctions setTimeout et
 <img src="captures/1.png" />
 
 
-<img src="captures/2.pnp" />
+<img src="captures/2.png" />
 
 
 ### Exercice 2 : Context et Internationalisation
