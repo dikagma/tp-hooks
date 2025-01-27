@@ -52,10 +52,22 @@ Pour chaque exercice :
 - [ ] 1.3 Documenter votre solution ici
 
 _Votre réponse pour l'exercice 1 :_
-```
-Expliquez votre solution ici
-[Ajoutez vos captures d'écran]
-```
+
+Explication de ma solution
+En modifiant ProductSearch, j'ai utiliser un debounce pour permettre la recherche en temps réel.
+pour le debounce, j'ai utiliser :
+
+   1- la fonction setTimeout de 300 ms pour mettre à jour la variable debouncedTerm lorsqu'un     utilisateur saisie dans le champs de recherche.  
+
+   2- la fonction clearTimeout pour annuler la mise à jour de la variable debouncedTerm, lorsque l'utilisateur saisie à nouveau  avant la fin des 300 ms.
+
+dans mon code, le premier hooks useEffect intégrant les fonctions setTimeout et clearTimeout gère le délai et l'annulation pour chaque mise à jour de searchTerm. Le second attend la nouvelle valeur de debouncedTerm et déclenche la recherche.
+
+<img src="captures/1.PNG" />
+
+
+<img src="captures/2.PNG" />
+
 
 ### Exercice 2 : Context et Internationalisation
 #### Objectif : Gérer les préférences de langue
