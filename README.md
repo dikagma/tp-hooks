@@ -63,6 +63,7 @@ pour le debounce, j'ai utiliser :
 
 dans mon code, le premier hooks useEffect intégrant les fonctions setTimeout et clearTimeout gère le délai et l'annulation pour chaque mise à jour de searchTerm. Le second attend la nouvelle valeur de debouncedTerm et déclenche la recherche.
 
+
 <img src="captures/1.png" />
 
 
@@ -78,9 +79,19 @@ dans mon code, le premier hooks useEffect intégrant les fonctions setTimeout et
 
 _Votre réponse pour l'exercice 2 :_
 ```
-Expliquez votre solution ici
-[Ajoutez vos captures d'écran]
+Nous avons créé le LanguageContext au niveau du composant principale App.js pour stocker et partager la langue active dans toute l'application grace à LanguageContext.Provider. useContext utilisé permet aux composants d'acceder à la langue active.
+Au niveau du selecteur de langue SelecteurLangue.js, lorsque l'utilisateur sélectionne une langue, le changement dynamique de langue est capté par la variable language grace à setLanguage. On voit sur les captures que lorsque l'utilisateur selectionne l'anglais, les textes en français change en anglais.  
 ```
+<img src="captures/3.png" />
+
+<img src="captures/4.png" />
+
+<img src="captures/5.png" />
+
+<img src="captures/6.png" />
+
+
+
 
 ### Exercice 3 : Hooks Personnalisés
 #### Objectif : Créer des hooks réutilisables
