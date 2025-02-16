@@ -101,8 +101,48 @@ Au niveau du selecteur de langue SelecteurLangue.js, lorsque l'utilisateur séle
 - [ ] 3.3 Documenter votre solution ici
 
 _Votre réponse pour l'exercice 3 :_
+3.1 useDebounce est un hook personnalisé en React permettant d’attendre un certain délai avant de mettre à jour une valeur
+const useDebounce = (value, delay) => {
+  const [debouncedValue, setDebouncedValue] = useState(value); //état local définit et initialisé à value
+
+  useEffect(() => {
+    const handler = setTimeout(() => setDebouncedValue(value), delay); //Mise à jour de debouncedValue après delay
+                                                                        //millisecondes  
+    return () => clearTimeout(handler);  //Annulation du précédant de la mise à jour si value change avant la fin 
+                                         // de delay milliseconde 
+  }, [value, delay]); 
+
+  return debouncedValue;
+};
+
+3.2  Ce hook permet de stocker et de récupérer des valeurs dans le LocalStorage du navigateur. 
+
+const useLocalStorage = (key, initialValue) => {
+  const [storedValue, setStoredValue] = useState(() => { //Stockage de la valeur réccupérer depuis le stockage 
+    try {                                                //local du navigateur.
+      const item = window.localStorage.getItem(key);     //reccupération de la valeur stocker dans le LocalStorage
+      return item ? JSON.parse(item) : initialValue;     //si la valeur existe, on la converti en Json si non on utilise la valeur fornit 
+    } catch (error) {                                    //dans InitialValue
+      console.error("Erreur de LocalStorage :", error);   // message d'erreur affiché dans le consol au cas où item=null
+      return initialValue;
+    }
+  });
+
+  const setValue = (value) => {   // cette fonction met à jour l'état local et stocke la nouvelle valeur dans localStorage.
+    try {
+      setStoredValue(value);
+      window.localStorage.setItem(key, JSON.stringify(value));
+    } catch (error) {
+      console.error("Erreur en sauvegardant :", error);
+    }
+  };
+
+  return [storedValue, setValue]; // tableau permettant d'acéder à la valeur stocké et la mise à jour de cette dernière
+};
 ```
 Expliquez votre solution ici
+3.3 documentation de la solution
+
 [Ajoutez vos captures d'écran]
 ```
 
@@ -114,6 +154,7 @@ Expliquez votre solution ici
 - [ ] 4.3 Documenter votre solution ici
 
 _Votre réponse pour l'exercice 4 :_
+4.1 
 ```
 Expliquez votre solution ici
 [Ajoutez vos captures d'écran]
