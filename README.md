@@ -154,6 +154,7 @@ Expliquez votre solution ici
 - [ ] 4.3 Documenter votre solution ici
 
 _Votre réponse pour l'exercice 4 :_
+```
 4.1 
     <button onClick={fetchProducts} className={`btn btn-primary my-3 ${isDarkTheme ? 'bg-dark text-light' : ''}`}>
         {language === 'fr' ? 'Recharger' : 'Reload'}
@@ -184,7 +185,7 @@ _Votre réponse pour l'exercice 4 :_
 Expliquez votre solution ici
 [Ajoutez vos captures d'écran]
 
-```
+
 <img src="captures/7.png" />
 
 ## Rendu
