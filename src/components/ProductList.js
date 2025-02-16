@@ -38,7 +38,7 @@ const ProductList = () => {
     <div>
       {/* TODO: Exercice 4.1 - Ajouter le bouton de rechargement */}
        
-      <button onClick={fetchProducts} className="btn btn-primary my-3">
+      <button onClick={fetchProducts} className={`btn btn-primary my-3 ${isDarkTheme ? 'bg-dark text-light' : ''}`}>
         {language === 'fr' ? 'Recharger' : 'Reload'}
       </button>
 

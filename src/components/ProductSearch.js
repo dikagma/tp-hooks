@@ -1,15 +1,17 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { LanguageContext, ThemeContext } from '../App';
+import useDebounce from '../hooks/useDebounce';
 
 const ProductSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const { isDarkTheme } = useContext(ThemeContext);
-  const [debouncedTerm, setDebouncedTerm] = useState('');
+ // const [debouncedTerm, setDebouncedTerm] = useState('');
   // TODO: Exercice 2.1 - Utiliser le LanguageContext
   const {language} = useContext(LanguageContext)
  
   // TODO: Exercice 1.2 - Utiliser le hook useDebounce
-  useEffect(()=>{
+  const debouncedTerm=useDebounce(searchTerm,300)
+ /* useEffect(()=>{
     const handler =setTimeout(()=>{
       setDebouncedTerm(searchTerm)
     },300) // 300ms de délai pour le debounce
@@ -17,7 +19,7 @@ const ProductSearch = () => {
     return ()=>{
       clearTimeout(handler); // Nettoyage pour éviter des appels multiples
     }
-  },[searchTerm])
+  },[searchTerm])*/
 
   useEffect(()=>{
     if(debouncedTerm){

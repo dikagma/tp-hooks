@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
+import useDebounce from './useDebounce';
+import useLocalStorage from './useLocalStorage';
 
 // TODO: Exercice 3.1 - Créer le hook useDebounce
-const useDebounce = (value, delay) => {
+
+/*const useDebounce = (value, delay) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {
@@ -10,9 +13,10 @@ const useDebounce = (value, delay) => {
   }, [value, delay]);
 
   return debouncedValue;
-};
+};*/
+
 // TODO: Exercice 3.2 - Créer le hook useLocalStorage
-const useLocalStorage = (key, initialValue) => {
+/*const useLocalStorage = (key, initialValue) => {
   const [storedValue, setStoredValue] = useState(() => {
     try {
       const item = window.localStorage.getItem(key);
@@ -33,7 +37,7 @@ const useLocalStorage = (key, initialValue) => {
   };
 
   return [storedValue, setValue];
-};
+};*/
 
 const useProductSearch = () => {
   const [products, setProducts] = useState([]);
@@ -41,16 +45,18 @@ const useProductSearch = () => {
   const [error, setError] = useState(null);
   // TODO: Exercice 4.2 - Ajouter l'état pour la pagination
   const [page, setPage] = useLocalStorage("productPage", 1);
-  const [perPage] = useState(5); // Nombre d'éléments par page Math.ceil
-  const[totalPages, setTotalPages] =useState(5) ; //état pour le nombre total de page. 
+  const [perPage] = useState(10); // Nombre d'éléments par page Math.ceil
+  const[totalPages, setTotalPages] =useState(10) ; //état pour le nombre total de page. 
   const fetchProducts = async () => {
       try {
-        
+         setLoading(true);
+         setError(null);
         // TODO: Exercice 4.2 - Modifier l'URL pour inclure les paramètres de pagination
         const response = await fetch(`https://api.daaif.net/products?page=${page}&limit=${perPage}&delay=1000`);
         if (!response.ok) throw new Error('Erreur réseau');
         const data = await response.json();
         setProducts(data.products);
+        
         if(data.total){
           setTotalPages(Math.ceil(data.total / perPage));
         }

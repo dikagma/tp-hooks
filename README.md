@@ -141,7 +141,7 @@ const useLocalStorage = (key, initialValue) => {
 };
 ```
 Expliquez votre solution ici
-3.3 documentation de la solution
+
 
 [Ajoutez vos captures d'écran]
 ```
@@ -155,10 +155,37 @@ Expliquez votre solution ici
 
 _Votre réponse pour l'exercice 4 :_
 4.1 
+    <button onClick={fetchProducts} className={`btn btn-primary my-3 ${isDarkTheme ? 'bg-dark text-light' : ''}`}>
+        {language === 'fr' ? 'Recharger' : 'Reload'}
+      </button>
+
+4.2
+<nav className="mt-4">
+        <ul className="pagination justify-content-center">
+          <li className="page-item">
+            <button className="page-link" onClick={previousPage}>
+              Précédent
+            </button>
+          </li>
+          <li className="page-item">
+            <span className="page-link">
+              Page {page} sur {totalPages}
+            </span>
+          </li>
+          <li className="page-item">
+            <button className="page-link" onClick={nextPage}>
+              Suivant
+            </button>
+          </li>
+        </ul>
+      </nav>
+      
 ```
 Expliquez votre solution ici
 [Ajoutez vos captures d'écran]
+
 ```
+<img src="captures/7.png" />
 
 ## Rendu
 
